@@ -1,0 +1,48 @@
+graph TD;
+    %% Styling and Subgraphs
+    subgraph HBnB ["HBnB System"]
+        User[User]
+        
+        %% Presentation Layer
+        subgraph PL ["Presentation Layer"]
+            Services[Services]
+            API[API]
+        end
+        
+        %% Business Logic Layer
+        subgraph BLL ["BusinessLogicLayer"]
+            Favorite[Favorite]
+            UserEntity[User]
+            Place[Place]
+            Datetime[Datetime]
+            Review[Review]
+            Amenity[Amenity]
+        end
+        
+        %% Persistence Layer
+        subgraph PeL ["PersistenceLayer"]
+            Database[Database]
+            Repositories[Repositories]
+        end
+    end
+
+    %% Connections
+    User -.-> PL
+    PL -->|Facade Pattern| BLL
+    BLL -->|Database Operations| PeL
+
+    %% Internal Business Logic Layer Relationships
+    Favorite --- UserEntity
+    Favorite --- Place
+    UserEntity --- Place
+    UserEntity --- Review
+    Place --- Datetime
+    Place --- Review
+    Place --- Amenity
+    Datetime --- Review
+
+    %% Layout / Style tweaks to hide box borders neatly if desired
+    style HBnB fill:none,stroke:#fff,stroke-width:2px;
+    style PL fill:none,stroke:#fff,stroke-dasharray: 5 5;
+    style BLL fill:none,stroke:#fff;
+    style PeL fill:none,stroke:#fff;
