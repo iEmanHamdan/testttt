@@ -1,7 +1,7 @@
 # Detailed Package Diagram
 
 ## Contents
-- [High-levelPackage Diagram](#High-level-Package-Diagram)
+- [High levelPackage Diagram](#High-level-Package-Diagram)
 - [Explanatory Notes](#explanatory-notes)
 - [Layer Responsibilities](#layer-responsibilities)
 - [Facade Pattern](#facade-pattern)
